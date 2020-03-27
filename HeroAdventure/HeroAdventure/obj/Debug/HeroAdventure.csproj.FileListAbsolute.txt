@@ -1,0 +1,6 @@
+C:\Users\Tuliusz\Desktop\HeroAdventure\HeroAdventure\bin\Debug\HeroAdventure.exe.config
+C:\Users\Tuliusz\Desktop\HeroAdventure\HeroAdventure\bin\Debug\HeroAdventure.exe
+C:\Users\Tuliusz\Desktop\HeroAdventure\HeroAdventure\bin\Debug\HeroAdventure.pdb
+C:\Users\Tuliusz\Desktop\HeroAdventure\HeroAdventure\obj\Debug\HeroAdventure.csprojAssemblyReference.cache
+C:\Users\Tuliusz\Desktop\HeroAdventure\HeroAdventure\obj\Debug\HeroAdventure.exe
+C:\Users\Tuliusz\Desktop\HeroAdventure\HeroAdventure\obj\Debug\HeroAdventure.pdb
