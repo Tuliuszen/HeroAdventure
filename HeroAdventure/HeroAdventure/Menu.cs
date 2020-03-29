@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HeroAdventure
 {
-    class Menu:Game
+    class Menu
     {
         public int index = 0;
 
@@ -14,7 +14,7 @@ namespace HeroAdventure
         {
             
         }
-        public void MenuDecision(string[] args)
+        public void MenuDecision()
         {
             List<string> menuItems = new List<string>() {
                 "Fight Monster",
@@ -26,15 +26,17 @@ namespace HeroAdventure
             while (true)
             {
                 string selectedMenuItem = drawMenu(menuItems);
-                if (selectedMenuItem == "one")
+                if (selectedMenuItem == "Fight Monster")
                 {
                     Console.Clear();
-                    Console.WriteLine("HELLO one!"); Console.Read();
+                    Console.WriteLine("Monster!"); Console.Read();
+                    Console.Clear();
                 }
-                else if (selectedMenuItem == "two")
+                else if (selectedMenuItem == "Go shopping")
                 {
                     Console.Clear();
-                    Console.WriteLine("HELLO one!"); Console.Read();
+                    Console.WriteLine("Shop!"); Console.Read();
+                    Console.Clear();
                 }
                 else if (selectedMenuItem == "Exit")
                 {
@@ -43,10 +45,6 @@ namespace HeroAdventure
             }
         }
 
-        internal void MenuDecision()
-        {
-            throw new NotImplementedException();
-        }
 
         public string drawMenu(List<string> items)
         {
@@ -72,15 +70,15 @@ namespace HeroAdventure
             {
                 if (index == items.Count - 1)
                 {
-                    //index = 0; //Remove the comment to return to the topmost item in the list
+                    index = 0; 
                 }
                 else { index++; }
             }
             else if (ckey.Key == ConsoleKey.UpArrow)
             {
-                if (index <= 0)
+                if (index == 0)
                 {
-                    //index = menuItem.Count - 1; //Remove the comment to return to the item in the bottom of the list
+                    index = 2;
                 }
                 else { index--; }
             }
