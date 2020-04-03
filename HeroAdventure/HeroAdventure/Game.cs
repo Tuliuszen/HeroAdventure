@@ -17,6 +17,9 @@ namespace HeroAdventure
         public void Play()
         {
             Welcome();
+
+            CreateHero(name);
+
             while (true)
             {
                 mainmenu.MenuDecision();
@@ -29,5 +32,15 @@ namespace HeroAdventure
             Console.WriteLine("Tell me your name: ");
             name = Console.ReadLine();
         }
+
+        public Hero CreateHero(string heroname)
+        {
+            Hero hero = new Hero(heroname,1,0,0,0,0,10,20,10,20);
+            hero.Add_Stats_Points(10);
+            hero.show_stats();
+            return hero;
+        }
+
+        
     }
 }
