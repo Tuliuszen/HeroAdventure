@@ -9,97 +9,97 @@ namespace HeroAdventure
     class Hero
     {
         public string heroName;
-        public int strength, agillity, defence, stamina, health, maxstamina, maxhealth;
-        public int herolevel, experience;
+        public int strength, agillity, defence, stamina, health, maxStamina, maxHealth;
+        public int heroLevel, experience;
         
-        public Hero(string heroName,int herolevel,int experience,  int strength, int agillity, int defence, int stamina, int health, int maxstamina, int maxhealth)
+        public Hero(string heroName,int heroLevel,int experience,  int strength, int agillity, int defence, int stamina, int health, int maxStamina, int maxHealth)
         {
             this.heroName = heroName;
-            this.herolevel = herolevel;
+            this.heroLevel = heroLevel;
             this.experience = experience;
             this.strength = strength;
             this.agillity = agillity;
             this.defence = defence;
             this.stamina = stamina;
             this.health = health;
-            this.maxstamina = maxstamina;
-            this.maxhealth = maxhealth;
+            this.maxStamina = maxStamina;
+            this.maxHealth = maxHealth;
         }
 
-        public void Add_Stats_Points(int number_of_points, Hero hero)
+        public void addStatsPoints(int numberOfPoints)
         {
             int points;
 
             Console.Clear();
+            
+            int previousHealth = this.health;
+            int previousStamina = this.stamina;
+            int previousDefence = this.defence;
 
-            int previoushealth = hero.health;
-            int previousstamina = hero.stamina;
-            int previousdefence = hero.defence;
-
-            Console.WriteLine("You have " + number_of_points + " Points, choose wisely");
+            Console.WriteLine("You have " + numberOfPoints + " Points, choose wisely");
             Console.WriteLine("strength=more damage, agillity=more frequent skills, defence=damage reduction");
             
             Console.WriteLine("How much points to strength? ");     //add points to strength
             points = int.Parse(Console.ReadLine());
-            if(number_of_points >= points)
+            if(numberOfPoints >= points)
             {
-                hero.strength += points;
+                this.strength += points;
             }
             else
             {
-                Add_Stats_Points(number_of_points, hero);
-                hero.health = previoushealth;
-                hero.stamina = previousstamina;
-                hero.defence = previousdefence;
+                addStatsPoints(numberOfPoints);
+                this.health = previousHealth;
+                this.stamina = previousStamina;
+                this.defence = previousDefence;
             }
-            number_of_points -= points;
+            numberOfPoints -= points;
 
             Console.WriteLine("How much points to agillity? ");
             points = int.Parse(Console.ReadLine());
-            if (number_of_points >= points)
+            if (numberOfPoints >= points)
             {
-                hero.agillity += points;
+                this.agillity += points;
             }
             else
             {
-                Add_Stats_Points(number_of_points, hero);
-                hero.health = previoushealth;
-                hero.stamina = previousstamina;
-                hero.defence = previousdefence;
+                addStatsPoints(numberOfPoints);
+                this.health = previousHealth;
+                this.stamina = previousStamina;
+                this.defence = previousDefence;
             }
-            number_of_points -= points;
+            numberOfPoints -= points;
 
             Console.WriteLine("How much points to defence? ");
             points = int.Parse(Console.ReadLine());
-            if (number_of_points >= points)
+            if (numberOfPoints >= points)
             {
-                hero.defence += points;
+                this.defence += points;
             }
             else
             {
-                Add_Stats_Points(number_of_points, hero);
-                hero.health = previoushealth;
-                hero.stamina = previousstamina;
-                hero.defence = previousdefence;
+                addStatsPoints(numberOfPoints);
+                this.health = previousHealth;
+                this.stamina = previousStamina;
+                this.defence = previousDefence;
             }
-            number_of_points -= points;
+            numberOfPoints -= points;
 
-            if(number_of_points > 0)
+            if(numberOfPoints > 0)
             {
-                Add_Stats_Points(number_of_points, hero);
+                addStatsPoints(numberOfPoints);
             }
         }
 
 
-        public void show_stats(Hero hero)
+        public void showStats()
         {
             Console.WriteLine("Hero Stats:");
-            Console.WriteLine("Lvl " + hero.herolevel);
-            Console.WriteLine("Health " + hero.health);
-            Console.WriteLine("Stamina " + hero.stamina);
-            Console.WriteLine("Strength " + hero.strength);
-            Console.WriteLine("Agility " + hero.agillity);
-            Console.WriteLine("Defence " + hero.defence);
+            Console.WriteLine("Lvl " + this.heroLevel);
+            Console.WriteLine("Health " + this.health);
+            Console.WriteLine("Stamina " + this.stamina);
+            Console.WriteLine("Strength " + this.strength);
+            Console.WriteLine("Agility " + this.agillity);
+            Console.WriteLine("Defence " + this.defence);
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
             Console.Clear();

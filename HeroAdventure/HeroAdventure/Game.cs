@@ -21,11 +21,11 @@ namespace HeroAdventure
         {
             Welcome();
 
-            hero = CreateHero(name);
+            hero = createHero(name);
             
             while (true)
             {
-                mainmenu.MenuDecision();
+                Menu.menuDecision();
             }
         }
 
@@ -34,17 +34,18 @@ namespace HeroAdventure
             Console.WriteLine("Hello!");
             Console.WriteLine("Tell me your name: ");
             name = Console.ReadLine();
+            Console.Clear();
         }
 
-        public Hero CreateHero(string heroname)
+        public Hero createHero(string heroName)
         {
-            Hero hero = new Hero(heroname,1,0,0,0,0,10,20,10,20);
-            Console.WriteLine("Weclome to the true man's World! " + heroname);
-            hero.show_stats(hero);
+            Hero hero = new Hero(heroName,1,0,0,0,0,10,20,10,20);
+            Console.WriteLine("Weclome to the true man's World! " + heroName);
+            hero.showStats();
             Console.ReadLine();
-            hero.Add_Stats_Points(10, hero);
+            hero.addStatsPoints(10);
             Console.Clear();
-            hero.show_stats(hero);
+            hero.showStats();
             return hero;
         }
 

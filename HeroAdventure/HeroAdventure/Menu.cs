@@ -8,13 +8,9 @@ namespace HeroAdventure
 {
     class Menu
     {
-        public int index = 0;
+        static public int index = 0;
 
-        public Menu()
-        {
-            
-        }
-        public void MenuDecision()
+        static public void menuDecision()
         {
             List<string> menuItems = new List<string>() {
                 "Fight Monster",
@@ -46,7 +42,7 @@ namespace HeroAdventure
         }
 
 
-        public string drawMenu(List<string> items)
+        static public string drawMenu(List<string> items)
         {
             for (int i = 0; i < items.Count; i++)
             {
