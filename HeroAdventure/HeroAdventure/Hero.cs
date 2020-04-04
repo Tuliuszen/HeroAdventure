@@ -8,9 +8,9 @@ namespace HeroAdventure
 {
     class Hero
     {
-        string heroName;
-        int strength, agillity, defence, stamina, health, maxstamina, maxhealth;
-        int herolevel, experience;
+        public string heroName;
+        public int strength, agillity, defence, stamina, health, maxstamina, maxhealth;
+        public int herolevel, experience;
         
         public Hero(string heroName,int herolevel,int experience,  int strength, int agillity, int defence, int stamina, int health, int maxstamina, int maxhealth)
         {
@@ -26,10 +26,10 @@ namespace HeroAdventure
             this.maxhealth = maxhealth;
         }
 
-        public void Add_Stats_Points(int number_of_points)
+        public void Add_Stats_Points(int number_of_points, Hero hero)
         {
             int points;
-            
+
             Console.Clear();
 
             Console.WriteLine("You have " + number_of_points + " Points, choose wisely");
@@ -43,9 +43,9 @@ namespace HeroAdventure
             }
             else
             {
-                Add_Stats_Points(number_of_points);
+                Add_Stats_Points(number_of_points, hero);
             }
-            number_of_points -= points;                             //remove points added from all points to strength and move to agility
+            number_of_points -= points;                             
 
             Console.WriteLine("How much points to agillity? ");
             points = int.Parse(Console.ReadLine());
@@ -55,7 +55,7 @@ namespace HeroAdventure
             }
             else
             {
-                Add_Stats_Points(number_of_points);
+                Add_Stats_Points(number_of_points, hero);
             }
             number_of_points -= points;
 
@@ -67,15 +67,14 @@ namespace HeroAdventure
             }
             else
             {
-                Add_Stats_Points(number_of_points);
+                Add_Stats_Points(number_of_points, hero);
             }
             number_of_points -= points;
 
         }
 
-        
 
-        public void show_stats()
+        public void show_stats(Hero hero)
         {
             Console.WriteLine(hero.strength);
             Console.WriteLine(hero.agillity);
