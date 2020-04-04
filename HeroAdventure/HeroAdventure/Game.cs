@@ -38,10 +38,12 @@ namespace HeroAdventure
 
         public Hero CreateHero(string heroname)
         {
-            Hero hero = new Hero(heroname,1,0,3,0,0,10,20,10,20);
+            Hero hero = new Hero(heroname,1,0,0,0,0,10,20,10,20);
+            Console.WriteLine("Weclome to the true man's World! " + heroname);
             hero.show_stats(hero);
             Console.ReadLine();
             hero.Add_Stats_Points(10, hero);
+            Console.Clear();
             hero.show_stats(hero);
             return hero;
         }
