@@ -12,7 +12,8 @@ namespace HeroAdventure
         public int monsterStrength, monsterAgility, monsterDefence, monsterHealth, monsterStamina;
         public int monsterLvl, monsterExp, monsterGold;
 
-        Monster zombiee;
+        static Monster currentEnemy;
+        static int numberOfEnemy;
         public Monster(string monsterName, int monsterLvl, int monsterStrength, int monsterAgility, int monsterDefence, int monsterHealth, int monsterStamina, int monsterExp, int monsterGold)
         {
             this.monsterName = monsterName;
@@ -26,9 +27,9 @@ namespace HeroAdventure
             this.monsterGold = monsterGold;
         }
 
-        public List<Monster> allMonsters = new List<Monster>();
+        static public List<Monster> allMonsters = new List<Monster>();
 
-        public void addMonsters()
+        static public void addMonsters()
         {
             Monster Zombie = new Monster("zombie", 1, 3, 3, 3, 15, 5, 5, 3);
             Monster Skeleton = new Monster("Skeleton", 2, 6, 4, 2, 15, 10, 8, 5);
@@ -50,6 +51,14 @@ namespace HeroAdventure
             allMonsters.Add(Giant);
             allMonsters.Add(Undead);
             allMonsters.Add(Dragon);
+        }
+        
+        static Random rnd = new Random();
+        static public Monster pickCurrentEnemy(Hero hero)
+        {
+            numberOfEnemy = rnd.Next(hero.heroLevel);
+            currentEnemy = allMonsters[numberOfEnemy];
+            return currentEnemy;
         }
 
 

@@ -9,8 +9,8 @@ namespace HeroAdventure
     class Menu
     {
         static public int index = 0;
-
-        static public void menuDecision()
+        static Monster monster;
+        static public void menuDecision(Hero hero)
         {
             List<string> menuItems = new List<string>() {
                 "Fight Monster",
@@ -25,7 +25,9 @@ namespace HeroAdventure
                 if (selectedMenuItem == "Fight Monster")
                 {
                     Console.Clear();
-                    Console.WriteLine("Monster!"); Console.Read();
+                    monster = Monster.pickCurrentEnemy(hero);
+                    Fight.fightMonster(hero, monster);
+                    Console.Read();
                     Console.Clear();
                 }
                 else if (selectedMenuItem == "Go shopping")

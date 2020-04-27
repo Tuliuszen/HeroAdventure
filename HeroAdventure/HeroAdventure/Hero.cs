@@ -104,6 +104,20 @@ namespace HeroAdventure
             Console.ReadKey();
             Console.Clear();
         }
+
+        public int superAttack()
+        {
+            int damage;
+            if(this.stamina >= 5)
+            {
+                damage = this.strength * 2;
+            }
+            else
+            {
+                damage = this.strength;
+            }
+            return damage;
+        }
     }
 
 }

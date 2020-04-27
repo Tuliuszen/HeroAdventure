@@ -22,10 +22,10 @@ namespace HeroAdventure
             Welcome();
 
             hero = createHero(name);
-            
+            Monster.addMonsters();
             while (true)
             {
-                Menu.menuDecision();
+                Menu.menuDecision(hero);
             }
         }
 
