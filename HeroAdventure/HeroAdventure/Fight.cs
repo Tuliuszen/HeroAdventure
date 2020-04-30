@@ -9,8 +9,6 @@ namespace HeroAdventure
     class Fight
     {
         static int damageTaken;
-        static string firstAttacker;
-        static int numberOfAttacks;
         static int enemyMaxHp;
         static string decision;
         static int monsterDecision;
@@ -46,29 +44,50 @@ namespace HeroAdventure
                 
                 if (hero.agillity >= currentEnemy.monsterAgility + 5)
                 {
-                    for(int i = 0; i==2; i++)
+                    for(int i = 0; i < 2; i++)
                     {
                         heroAttack(hero, currentEnemy);
                     }
                     monsterAttack(hero, currentEnemy);
+                    Console.ReadKey();
+                    Console.Clear();
                 }
                 else if(hero.agillity+5 <= currentEnemy.monsterAgility )
                 {
-                    for (int i = 0; i == 2; i++)
+                    for (int i = 0; i < 2; i++)
                     {
                         monsterAttack(hero, currentEnemy);
                     }
                     heroAttack(hero, currentEnemy);
+                    Console.ReadKey();
+                    Console.Clear();
                 }
                 else
                 {
                     heroAttack(hero, currentEnemy);
                     monsterAttack(hero, currentEnemy);
+                    Console.ReadKey();
+                    Console.Clear();
                 }
             }
-            Console.WriteLine("Hero hp: " + hero.health + "Monster hp: " + currentEnemy.monsterHealth);
             
-          
+            
+            if(hero.health > 0)
+            {
+                Console.WriteLine("You win!");
+                currentEnemy.monsterHealth = enemyMaxHp;
+                hero.experience += currentEnemy.monsterExp;
+                hero.gold += currentEnemy.monsterGold;
+                Console.WriteLine("Hero exp: " + hero.experience + " Hero gold: " + hero.gold);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("You lose");
+                Console.WriteLine("Press any key to leave the game");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
         }
         static public void heroAttack(Hero hero, Monster currentEnemy)
         {
@@ -79,21 +98,33 @@ namespace HeroAdventure
             decision = Console.ReadLine(); 
             if (decision == "1")
             {
-                currentEnemy.monsterHealth -= hero.strength - currentEnemy.monsterDefence;
-            }
-            else
-            {
-            if (hero.stamina >= 5)
-            {
-                currentEnemy.monsterHealth -= 2 * hero.strength - currentEnemy.monsterDefence;
-                hero.stamina -= 5;
-            }
-            else
-            {
-                Console.WriteLine("Not enough stamina so normal attack");
-                currentEnemy.monsterHealth -= hero.strength - currentEnemy.monsterDefence;
+                damageTaken = hero.strength - currentEnemy.monsterDefence;
+                currentEnemy.monsterHealth -= damageTaken;
+                Console.WriteLine("Hero attack  " + damageTaken);
                 Console.WriteLine("Monster hp left: " + currentEnemy.monsterHealth);
+                Console.WriteLine("Hero stamina: " + hero.stamina);
+
             }
+            else
+            {
+                if (hero.stamina >= 5)
+                {
+                    damageTaken = 2 * (hero.strength - currentEnemy.monsterDefence);
+                    currentEnemy.monsterHealth -= damageTaken;
+                    hero.stamina -= 5;
+                    Console.WriteLine("Hero attack  " + damageTaken);
+                    Console.WriteLine("Monster hp left: " + currentEnemy.monsterHealth);
+                    Console.WriteLine("Hero stamina: " + hero.stamina);
+                }
+                else
+                {
+                    Console.WriteLine("Not enough stamina so normal attack");
+                    damageTaken = hero.strength - currentEnemy.monsterDefence;
+                    currentEnemy.monsterHealth -= damageTaken;
+                    Console.WriteLine("Hero attack  " + damageTaken);
+                    Console.WriteLine("Monster hp left: " + currentEnemy.monsterHealth);
+                    Console.WriteLine("Hero stamina: " + hero.stamina);
+                }
             }
             
             
@@ -107,22 +138,30 @@ namespace HeroAdventure
                 if(currentEnemy.monsterStamina >= 5)
                 {
                     Console.WriteLine("Super Attack incoming");
-                    hero.health -= 2 * currentEnemy.monsterStrength - hero.defence;
+                    damageTaken = 2 * (currentEnemy.monsterStrength - hero.defence);
+                    hero.health -= damageTaken;
                     currentEnemy.monsterStamina -= 5;
+                    Console.WriteLine("Hero took  " + damageTaken);
                     Console.WriteLine("Hero hp left: " + hero.health);
+                    Console.WriteLine("Monster stamina: " + currentEnemy.monsterStamina);
                 }
                 else
                 {
-                    Console.WriteLine("Not enough stamina so normal attack");
-                    hero.health -= currentEnemy.monsterStrength - hero.defence;
+                    damageTaken = currentEnemy.monsterStrength - hero.defence;
+                    hero.health -= damageTaken;
+                    Console.WriteLine("Hero took  " + damageTaken);
                     Console.WriteLine("Hero hp left: " + hero.health);
+                    Console.WriteLine("Monster stamina: " + currentEnemy.monsterStamina);
                 }
                 
             }
             else
             {
-                hero.health -= currentEnemy.monsterStrength - hero.defence;
+                damageTaken = currentEnemy.monsterStrength - hero.defence;
+                hero.health -= damageTaken;
+                Console.WriteLine("Hero took  " + damageTaken);
                 Console.WriteLine("Hero hp left: " + hero.health);
+                Console.WriteLine("Monster stamina: " + currentEnemy.monsterStamina);
             }
         }
     }

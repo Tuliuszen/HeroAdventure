@@ -10,13 +10,14 @@ namespace HeroAdventure
     {
         public string heroName;
         public int strength, agillity, defence, stamina, health, maxStamina, maxHealth;
-        public int heroLevel, experience;
+        public int heroLevel, experience, gold;
         
-        public Hero(string heroName,int heroLevel,int experience,  int strength, int agillity, int defence, int stamina, int health, int maxStamina, int maxHealth)
+        public Hero(string heroName,int heroLevel,int experience,int gold,  int strength, int agillity, int defence, int stamina, int health, int maxStamina, int maxHealth)
         {
             this.heroName = heroName;
             this.heroLevel = heroLevel;
             this.experience = experience;
+            this.gold = gold;
             this.strength = strength;
             this.agillity = agillity;
             this.defence = defence;
