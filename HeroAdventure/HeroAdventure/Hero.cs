@@ -11,7 +11,9 @@ namespace HeroAdventure
         public string heroName;
         public int strength, agillity, defence, stamina, health, maxStamina, maxHealth;
         public int heroLevel, experience, gold;
-        
+        static int levels;
+        static int heroLevelBefore;
+
         public Hero(string heroName,int heroLevel,int experience,int gold,  int strength, int agillity, int defence, int stamina, int health, int maxStamina, int maxHealth)
         {
             this.heroName = heroName;
@@ -91,7 +93,27 @@ namespace HeroAdventure
             }
         }
 
+        static List<int> expToLevelUp = new List<int>(new int[] { 10, 30, 50, 90, 140, 200, 280, 400, 600 });
 
+        static public void checkLevel(Hero hero)
+        {
+            foreach (int expGrade in expToLevelUp)
+            {
+                if(hero.experience >= expGrade)
+                {
+                    levels++;
+                }
+                if(levels > heroLevelBefore)
+                {
+                    Console.WriteLine("You Leveled Up!");
+                    Console.ReadKey();
+                    hero.addStatsPoints(5);
+                    hero.heroLevel = levels + 1;
+                    heroLevelBefore = hero.heroLevel;
+                }
+            }
+
+        }
         public void showStats()
         {
             Console.WriteLine("Hero Stats:");

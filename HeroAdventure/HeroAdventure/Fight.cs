@@ -52,7 +52,7 @@ namespace HeroAdventure
                     Console.ReadKey();
                     Console.Clear();
                 }
-                else if(hero.agillity+5 <= currentEnemy.monsterAgility )
+                else if(hero.agillity+5 <= currentEnemy.monsterAgility)
                 {
                     for (int i = 0; i < 2; i++)
                     {
@@ -80,6 +80,7 @@ namespace HeroAdventure
                 hero.gold += currentEnemy.monsterGold;
                 Console.WriteLine("Hero exp: " + hero.experience + " Hero gold: " + hero.gold);
                 Console.ReadLine();
+                Hero.checkLevel(hero);
             }
             else
             {
