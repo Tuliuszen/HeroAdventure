@@ -8,7 +8,6 @@ namespace HeroAdventure
 {
     class Shop
     {
-        static public int index = 0;
         static public void whichEquipmentCategory(Hero hero)
         {
             Console.WriteLine("Welcome to the Shop!");
@@ -28,7 +27,7 @@ namespace HeroAdventure
             Console.CursorVisible = false;
             while (true)
             {
-                string selectedMenuItem = Shop.drawMenu(menuItems);
+                string selectedMenuItem = Menu.drawMenu(menuItems);
                 if (selectedMenuItem == "Weapons")
                 {
                     Console.Clear();
@@ -50,58 +49,11 @@ namespace HeroAdventure
                 }
                 else if (selectedMenuItem == "Exit")
                 {
+                    Menu.drawMenu(menuItems);
                     Menu.mainMenuDecision(hero);
                 }
             }
         }
 
-        static public string drawMenu(List<string> items)
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (i == index)
-                {
-                    Console.BackgroundColor = ConsoleColor.Gray;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine(items[i]);
-                }
-                else
-                {
-                    Console.WriteLine(items[i]);
-                }
-                Console.ResetColor();
-            }
-
-            ConsoleKeyInfo ckey = Console.ReadKey();
-
-            if (ckey.Key == ConsoleKey.DownArrow)
-            {
-                if (index == items.Count - 1)
-                {
-                    index = 0;
-                }
-                else { index++; }
-            }
-            else if (ckey.Key == ConsoleKey.UpArrow)
-            {
-                if (index == 0)
-                {
-                    index = 2;
-                }
-                else { index--; }
-            }
-            else if (ckey.Key == ConsoleKey.Enter)
-            {
-                return items[index];
-            }
-            else
-            {
-                return "";
-            }
-
-            Console.Clear();
-            return "";
-        }
     }
 }
