@@ -6,43 +6,54 @@ using System.Threading.Tasks;
 
 namespace HeroAdventure
 {
-    class Menu
+    class Shop
     {
         static public int index = 0;
-        static Monster monster;
-        static public void mainMenuDecision(Hero hero)
+        static public void whichEquipmentCategory(Hero hero)
+        {
+            Console.WriteLine("Welcome to the Shop!");
+            Console.WriteLine("What items do you want to look at?");
+            Shop.shopMenuDecision(hero);
+        }
+
+        static public void shopMenuDecision(Hero hero)
         {
             List<string> menuItems = new List<string>() {
-                "Fight Monster",
-                "Go shopping",
+                "Weapons",
+                "Armor",
+                "Potions",
                 "Exit"
             };
 
             Console.CursorVisible = false;
             while (true)
             {
-                string selectedMenuItem = drawMenu(menuItems);
-                if (selectedMenuItem == "Fight Monster")
+                string selectedMenuItem = Shop.drawMenu(menuItems);
+                if (selectedMenuItem == "Weapons")
                 {
                     Console.Clear();
-                    monster = Monster.pickCurrentEnemy(hero);
-                    Fight.fightMonster(hero, monster);
-                    Console.Read();
-                    Console.Clear();
+                    Console.WriteLine("Weapons");
+                    Items.showWeaponsList();
                 }
-                else if (selectedMenuItem == "Go shopping")
+                else if (selectedMenuItem == "Armor")
                 {
                     Console.Clear();
-                    Shop.whichEquipmentCategory(hero);
+                    Console.WriteLine("Armor");
+                    Items.showArmorList();
+                }
+                else if (selectedMenuItem == "Potions")
+                {
                     Console.Clear();
+                    Console.WriteLine("Potions");
+                    Items.showPotionsList();
+                    Console.ReadKey();
                 }
                 else if (selectedMenuItem == "Exit")
                 {
-                    Environment.Exit(0);
+                    Menu.mainMenuDecision(hero);
                 }
             }
         }
-
 
         static public string drawMenu(List<string> items)
         {
@@ -68,7 +79,7 @@ namespace HeroAdventure
             {
                 if (index == items.Count - 1)
                 {
-                    index = 0; 
+                    index = 0;
                 }
                 else { index++; }
             }

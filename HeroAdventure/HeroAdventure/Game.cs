@@ -23,9 +23,12 @@ namespace HeroAdventure
 
             hero = createHero(name);
             Monster.addMonsters();
+            Items.addWeaponsList();
+            Items.addArmorList();
+            Items.addPotionsList();
             while (true)
             {
-                Menu.menuDecision(hero);
+                Menu.mainMenuDecision(hero);
             }
         }
 
@@ -39,7 +42,7 @@ namespace HeroAdventure
 
         public Hero createHero(string heroName)
         {
-            Hero hero = new Hero(heroName,1,0,0,0,0,0,10,20,10,20);
+            Hero hero = new Hero(heroName,1,0,0,0,0,0,25,25,25,25,"","");
             Console.WriteLine("Weclome to the true man's World! " + heroName);
             hero.showStats();
             Console.ReadLine();

@@ -133,7 +133,7 @@ namespace HeroAdventure
 
         static public void monsterAttack(Hero hero, Monster currentEnemy)
         {
-            monsterDecision = rnd.Next(1);
+            monsterDecision = rnd.Next(2);
             if(monsterDecision == 1)
             {
                 if(currentEnemy.monsterStamina >= 5)

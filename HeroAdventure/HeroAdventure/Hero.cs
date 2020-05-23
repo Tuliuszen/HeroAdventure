@@ -13,8 +13,9 @@ namespace HeroAdventure
         public int heroLevel, experience, gold;
         static int levels;
         static int heroLevelBefore;
+        public string weapon, armor;
 
-        public Hero(string heroName,int heroLevel,int experience,int gold,  int strength, int agillity, int defence, int stamina, int health, int maxStamina, int maxHealth)
+        public Hero(string heroName,int heroLevel,int experience,int gold,  int strength, int agillity, int defence, int stamina, int health, int maxStamina, int maxHealth, string weapon, string armor)
         {
             this.heroName = heroName;
             this.heroLevel = heroLevel;
@@ -27,6 +28,8 @@ namespace HeroAdventure
             this.health = health;
             this.maxStamina = maxStamina;
             this.maxHealth = maxHealth;
+            this.weapon = weapon;
+            this.armor = armor;
         }
 
         public void addStatsPoints(int numberOfPoints)
