@@ -8,6 +8,9 @@ namespace HeroAdventure
 {
     class Shop
     {
+        static int itemNumber;
+        static Items choosenItem;
+        
         static public void whichEquipmentCategory(Hero hero)
         {
             Console.WriteLine("Welcome to the Shop!");
@@ -45,6 +48,7 @@ namespace HeroAdventure
                     Console.Clear();
                     Console.WriteLine("Potions");
                     Items.showPotionsList();
+                    Shop.chooseItemToBuy(Items.potionsList);
                     Console.ReadKey();
                 }
                 else if (selectedMenuItem == "Exit")
@@ -53,6 +57,19 @@ namespace HeroAdventure
                     Menu.mainMenuDecision(hero);
                 }
             }
+        }
+
+        static public void chooseItemToBuy(List<Items> list)
+        {
+            Console.WriteLine("Pick item number");
+            itemNumber = Console.Read();
+            choosenItem = list[itemNumber];
+
+        }
+
+        public void buyItem(Items item)
+        { 
+            
         }
 
     }

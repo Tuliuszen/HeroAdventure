@@ -89,24 +89,28 @@ namespace HeroAdventure
         
         static public void showWeaponsList()
         {
+            int positionNumber = 0;
             foreach (Weapons item in weaponsList)
             {
-                Console.WriteLine(item.itemName + " " + item.itemCost);
+                Console.WriteLine(positionNumber + item.itemName + " " + item.itemCost);
+                positionNumber++;
             }
         }
         static public void showArmorList()
         {
+            int positionNumber = 0;
             foreach (Armor item in armorList)
             {
-                Console.WriteLine(item.itemName + " " + item.itemCost);
+                Console.WriteLine(positionNumber + item.itemName + " " + item.itemCost);
             }
         }
 
         static public void showPotionsList()
         {
+            int positionNumber = 0;
             foreach (Potions item in potionsList)
             {
-                Console.WriteLine(item.itemName + " " + item.itemCost);
+                Console.WriteLine(positionNumber + item.itemName + " " + item.itemCost);
             }
         }
 
