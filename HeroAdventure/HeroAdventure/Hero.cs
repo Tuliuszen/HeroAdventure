@@ -13,9 +13,9 @@ namespace HeroAdventure
         public int heroLevel, experience, gold;
         static int levels;
         static int heroLevelBefore;
-        public Items weapon, armor;
+        public string weapon, armor;
 
-        public Hero(string heroName,int heroLevel,int experience,int gold,  int strength, int agillity, int defence, int stamina, int health, int maxStamina, int maxHealth, Items weapon, Items armor)
+        public Hero(string heroName,int heroLevel,int experience,int gold,  int strength, int agillity, int defence, int stamina, int health, int maxStamina, int maxHealth, string weapon, string armor)
         {
             this.heroName = heroName;
             this.heroLevel = heroLevel;

@@ -35,20 +35,24 @@ namespace HeroAdventure
                 {
                     Console.Clear();
                     Console.WriteLine("Weapons");
-                    Items.showWeaponsList();
+                    WepaonsInicialization.showWeaponsList();
+                    Shop.chooseItemToBuy("Weapons");
+                    WepaonsInicialization.showWeaponsList();
                 }
                 else if (selectedMenuItem == "Armor")
                 {
                     Console.Clear();
                     Console.WriteLine("Armor");
-                    Items.showArmorList();
+                    ArmorInicialization.showArmorList();
+                    Shop.chooseItemToBuy("Armor");
+                    ArmorInicialization.showArmorList();
                 }
                 else if (selectedMenuItem == "Potions")
                 {
                     Console.Clear();
                     Console.WriteLine("Potions");
-                    Items.showPotionsList();
-                    Shop.chooseItemToBuy(Items.potionsList);
+                    PotionsInicialization.showPotionsList();
+                    Shop.chooseItemToBuy("Potions");
                     Console.ReadKey();
                 }
                 else if (selectedMenuItem == "Exit")
@@ -59,12 +63,26 @@ namespace HeroAdventure
             }
         }
 
-        static public void chooseItemToBuy(List<Items> list)
+        static public void chooseItemToBuy(string itemList)
         {
-            Console.WriteLine("Pick item number");
-            itemNumber = Console.Read();
-            choosenItem = list[itemNumber];
-
+            if (itemList == "Weapons")
+            {
+                Console.WriteLine("Pick item number");
+                itemNumber = Console.Read();
+                choosenItem = ShopLists.weaponsList[itemNumber];
+            }
+            else if (itemList == "Armor")
+            {
+                Console.WriteLine("Pick item number");
+                itemNumber = Console.Read();
+                choosenItem = ShopLists.armorList[itemNumber];
+            }
+            else 
+            {
+                Console.WriteLine("Pick item number");
+                itemNumber = Console.Read();
+                choosenItem = ShopLists.potionsList[itemNumber];
+            }
         }
 
         public void buyItem(Items item)

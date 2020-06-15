@@ -23,9 +23,9 @@ namespace HeroAdventure
 
             hero = createHero(name);
             Monster.addMonsters();
-            Items.addWeaponsList();
-            Items.addArmorList();
-            Items.addPotionsList();
+            WepaonsInicialization.addWeaponsList();
+            ArmorInicialization.addArmorList();
+            PotionsInicialization.addPotionsList();
             while (true)
             {
                 Menu.mainMenuDecision(hero);
