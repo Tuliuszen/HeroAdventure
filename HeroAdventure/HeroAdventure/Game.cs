@@ -11,12 +11,7 @@ namespace HeroAdventure
         string name;
 
         public Hero hero;
-
-        Menu mainmenu = new Menu();
-        public Game()
-        { 
-            
-        }
+       
         public void Play()
         {
             Welcome();
@@ -42,7 +37,7 @@ namespace HeroAdventure
 
         public Hero createHero(string heroName)
         {
-            Hero hero = new Hero(heroName,1,0,0,0,0,0,25,25,25,25,"","");
+            Hero hero = new Hero(heroName,1,0,100,0,0,0,15,15,25,25,null,null);
             Console.WriteLine("Weclome to the true man's World! " + heroName);
             hero.showStats();
             Console.ReadLine();

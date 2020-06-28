@@ -8,9 +8,9 @@ namespace HeroAdventure
 {
     class Shop
     {
-        static int itemNumber;
         static Items choosenItem;
-        
+        static public int itemNumber;
+
         static public void whichEquipmentCategory(Hero hero)
         {
             Console.WriteLine("Welcome to the Shop!");
@@ -37,7 +37,7 @@ namespace HeroAdventure
                     Console.WriteLine("Weapons");
                     WepaonsInicialization.showWeaponsList();
                     Shop.chooseItemToBuy("Weapons");
-                    WepaonsInicialization.showWeaponsList();
+                    Shop.buy(choosenItem, hero);
                 }
                 else if (selectedMenuItem == "Armor")
                 {
@@ -45,7 +45,7 @@ namespace HeroAdventure
                     Console.WriteLine("Armor");
                     ArmorInicialization.showArmorList();
                     Shop.chooseItemToBuy("Armor");
-                    ArmorInicialization.showArmorList();
+                    Shop.buy(choosenItem, hero);
                 }
                 else if (selectedMenuItem == "Potions")
                 {
@@ -53,7 +53,7 @@ namespace HeroAdventure
                     Console.WriteLine("Potions");
                     PotionsInicialization.showPotionsList();
                     Shop.chooseItemToBuy("Potions");
-                    Console.ReadKey();
+                    Shop.buy(choosenItem, hero);
                 }
                 else if (selectedMenuItem == "Exit")
                 {
@@ -68,27 +68,105 @@ namespace HeroAdventure
             if (itemList == "Weapons")
             {
                 Console.WriteLine("Pick item number");
-                itemNumber = Console.Read();
+                itemNumber = int.Parse(Console.ReadLine());
                 choosenItem = ShopLists.weaponsList[itemNumber];
             }
             else if (itemList == "Armor")
             {
                 Console.WriteLine("Pick item number");
-                itemNumber = Console.Read();
+                itemNumber = int.Parse(Console.ReadLine());
                 choosenItem = ShopLists.armorList[itemNumber];
             }
             else 
             {
                 Console.WriteLine("Pick item number");
-                itemNumber = Console.Read();
+                itemNumber = int.Parse(Console.ReadLine());
                 choosenItem = ShopLists.potionsList[itemNumber];
             }
         }
 
-        public void buyItem(Items item)
-        { 
-            
+        static public void buy(Items item, Hero hero)
+        {
+            Items previousWeapon = hero.weapon;
+            Items previousArmor = hero.armor;
+
+            if (hero.gold >= item.itemCost)     
+            {
+                if (item.GetType() == typeof(Weapons))
+                {
+                    buyItem(hero, item,previousWeapon);
+                    hero.weapon = item;
+                    hero.gold -= item.itemCost;
+                    Shop.whichEquipmentCategory(hero);
+                }
+                else if (item.GetType() == typeof(Armor))
+                {
+                    buyItem(hero, item, previousArmor);
+                    hero.armor = item;
+                    hero.gold -= item.itemCost;
+                    Shop.whichEquipmentCategory(hero);
+                }
+                else if (item.GetType() == typeof(Potions))     
+                {
+                    addPotionsStats(hero, item);
+                    hero.gold -= item.itemCost;
+                    Shop.whichEquipmentCategory(hero);
+                }
+            }
+            else 
+            {
+                Console.WriteLine("Not enough money try again later!");
+                Shop.whichEquipmentCategory(hero);
+            }
+
         }
 
+        static void addPotionsStats(Hero hero, Items potion)
+        {
+            hero.health += potion.itemHealth;
+            hero.stamina += potion.itemStamina;
+
+            if (hero.health > hero.maxHealth)       //if added health exceedes max hp or max stamina make it equal to max
+            {
+                hero.health = hero.maxHealth;
+            }
+            else if (hero.stamina > hero.maxStamina)
+            {
+                hero.stamina = hero.maxStamina;
+            }
+        }
+
+        static void addItemStats(Hero hero, Items item)
+        {
+            hero.strength += item.itemStrength;
+            hero.agillity += item.itemAgility;
+            hero.defence += item.itemDefence;
+        }
+
+        static void buyItem(Hero hero, Items item,Items previousItem)
+        {
+            if (item.GetType() == typeof(Weapons))
+            {
+                addItemStats(hero, item);
+
+                if (previousItem != null)
+                {
+                    hero.strength -= previousItem.itemStrength;
+                    hero.agillity -= previousItem.itemAgility;
+                }
+                previousItem = item;
+            }
+            else if (item.GetType() == typeof(Armor))
+            {
+                addItemStats(hero, item);
+
+                if (previousItem != null)
+                {
+                    hero.strength -= previousItem.itemStrength;
+                    hero.defence -= previousItem.itemDefence;
+                }
+                previousItem = item;
+            }
+        }
     }
 }
