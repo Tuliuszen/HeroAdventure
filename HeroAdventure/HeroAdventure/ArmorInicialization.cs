@@ -37,6 +37,7 @@ namespace HeroAdventure
             foreach (Armor item in ShopLists.armorList)
             {
                 Console.WriteLine(positionNumber + " " + item.itemName + " " + item.itemCost);
+                positionNumber++;
             }
         }
     }
