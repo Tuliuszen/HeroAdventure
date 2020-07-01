@@ -11,7 +11,7 @@ namespace HeroAdventure
         static void Main(string[] args)
         {
             Game start = new Game();
-            start.Play();
+            start.mainMenu();
         }
     }
 }

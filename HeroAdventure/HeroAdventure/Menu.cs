@@ -15,7 +15,8 @@ namespace HeroAdventure
             List<string> menuItems = new List<string>() {
                 "Fight Monster",
                 "Go shopping",
-                "Exit"
+                "Exit",
+                "Save and Exit"
             };
 
             Console.CursorVisible = false;
@@ -39,6 +40,15 @@ namespace HeroAdventure
                 else if (selectedMenuItem == "Exit")
                 {
                     Environment.Exit(0);
+                }
+                else if (selectedMenuItem == "Save and Exit")
+                {
+                    SaveLoad.Save();
+                    Environment.Exit(0);
+                }
+                else if (selectedMenuItem == "Load")
+                {
+                    SaveLoad.Load();
                 }
             }
         }

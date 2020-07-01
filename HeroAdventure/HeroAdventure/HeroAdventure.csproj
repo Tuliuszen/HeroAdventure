@@ -51,10 +51,12 @@
     <Compile Include="Item.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Monster.cs" />
+    <Compile Include="Play.cs" />
     <Compile Include="Potions.cs" />
     <Compile Include="PotionsInicialization.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveLoad.cs" />
     <Compile Include="Shop.cs" />
     <Compile Include="ShopLists.cs" />
     <Compile Include="Weapons.cs" />

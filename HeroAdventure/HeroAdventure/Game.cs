@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace HeroAdventure
 {
+    [Serializable]
     class Game
     {
         string name;
 
         public Hero hero;
-       
-        public void Play()
+
+        public static Game current;
+
+        public void mainMenu()
+        {
+            Play.gameDecision();
+        }
+
+        public void gameStart()
         {
             Welcome();
 
+            
             hero = createHero(name);
             Monster.addMonsters();
             WepaonsInicialization.addWeaponsList();

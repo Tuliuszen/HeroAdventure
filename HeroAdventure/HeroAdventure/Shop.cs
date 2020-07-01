@@ -9,7 +9,7 @@ namespace HeroAdventure
     class Shop
     {
         static Items choosenItem;
-        static public int itemNumber;
+        
 
         static public void whichEquipmentCategory(Hero hero)
         {
@@ -65,6 +65,8 @@ namespace HeroAdventure
 
         static public void chooseItemToBuy(string itemList)
         {
+            int itemNumber;
+
             if (itemList == "Weapons")
             {
                 Console.WriteLine("Pick item number");
@@ -82,6 +84,7 @@ namespace HeroAdventure
                 Console.WriteLine("Pick item number");
                 itemNumber = int.Parse(Console.ReadLine());
                 choosenItem = ShopLists.potionsList[itemNumber];
+
             }
         }
 

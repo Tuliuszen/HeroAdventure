@@ -39,7 +39,7 @@ namespace HeroAdventure
             int positionNumber = 0;
             foreach (Weapons item in ShopLists.weaponsList)
             {
-                Console.WriteLine(positionNumber + item.itemName + " " + item.itemCost);
+                Console.WriteLine(positionNumber + " " + item.itemName + " " + item.itemCost);
                 positionNumber++;
             }
         }

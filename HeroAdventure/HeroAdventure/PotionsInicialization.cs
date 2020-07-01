@@ -34,7 +34,8 @@ namespace HeroAdventure
             int positionNumber = 0;
             foreach (Potions item in ShopLists.potionsList)
             {
-                Console.WriteLine(positionNumber + item.itemName + " " + item.itemCost);
+                Console.WriteLine(positionNumber + " " + item.itemName + " " + item.itemCost);
+                positionNumber++;
             }
         }
     }
