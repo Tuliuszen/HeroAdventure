@@ -43,12 +43,12 @@ namespace HeroAdventure
                 }
                 else if (selectedMenuItem == "Save and Exit")
                 {
-                    SaveLoad.Save();
+                    SaveLoad.Save(hero);
                     Environment.Exit(0);
                 }
                 else if (selectedMenuItem == "Load")
                 {
-                    SaveLoad.Load();
+                    SaveLoad.Load(hero);
                 }
             }
         }

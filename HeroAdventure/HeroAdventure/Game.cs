@@ -13,7 +13,6 @@ namespace HeroAdventure
 
         public Hero hero;
 
-        public static Game current;
 
         public void mainMenu()
         {
@@ -23,8 +22,6 @@ namespace HeroAdventure
         public void gameStart()
         {
             Welcome();
-
-            
             hero = createHero(name);
             Monster.addMonsters();
             WepaonsInicialization.addWeaponsList();
@@ -41,17 +38,14 @@ namespace HeroAdventure
             Console.WriteLine("Hello!");
             Console.WriteLine("Tell me your name: ");
             name = Console.ReadLine();
-            Console.Clear();
         }
 
         public Hero createHero(string heroName)
         {
-            Hero hero = new Hero(heroName,1,0,100,0,0,0,15,15,25,25,null,null);
+            Hero hero = new Hero(heroName,1,0,0,0,0,0,25,25,25,25,null,null);
             Console.WriteLine("Weclome to the true man's World! " + heroName);
-            hero.showStats();
             Console.ReadLine();
             hero.addStatsPoints(10);
-            Console.Clear();
             hero.showStats();
             return hero;
         }
