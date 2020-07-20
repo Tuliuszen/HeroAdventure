@@ -100,10 +100,9 @@ namespace HeroAdventure
             if (decision == "1")
             {
                 damageTaken = hero.strength - currentEnemy.monsterDefence;
+                damageTaken = checkDamage(damageTaken);
                 currentEnemy.monsterHealth -= damageTaken;
-                Console.WriteLine("Hero attack  " + damageTaken);
-                Console.WriteLine("Monster hp left: " + currentEnemy.monsterHealth);
-                Console.WriteLine("Hero stamina: " + hero.stamina);
+                heroAttackMessage(hero, currentEnemy);
 
             }
             else
@@ -111,20 +110,18 @@ namespace HeroAdventure
                 if (hero.stamina >= 5)
                 {
                     damageTaken = 2 * (hero.strength - currentEnemy.monsterDefence);
+                    damageTaken = checkDamage(damageTaken);
                     currentEnemy.monsterHealth -= damageTaken;
                     hero.stamina -= 5;
-                    Console.WriteLine("Hero attack  " + damageTaken);
-                    Console.WriteLine("Monster hp left: " + currentEnemy.monsterHealth);
-                    Console.WriteLine("Hero stamina: " + hero.stamina);
+                    heroAttackMessage(hero, currentEnemy);
                 }
                 else
                 {
                     Console.WriteLine("Not enough stamina so normal attack");
                     damageTaken = hero.strength - currentEnemy.monsterDefence;
+                    damageTaken = checkDamage(damageTaken);
                     currentEnemy.monsterHealth -= damageTaken;
-                    Console.WriteLine("Hero attack  " + damageTaken);
-                    Console.WriteLine("Monster hp left: " + currentEnemy.monsterHealth);
-                    Console.WriteLine("Hero stamina: " + hero.stamina);
+                    heroAttackMessage( hero, currentEnemy);
                 }
             }
             
@@ -139,31 +136,53 @@ namespace HeroAdventure
                 if(currentEnemy.monsterStamina >= 5)
                 {
                     Console.WriteLine("Super Attack incoming");
-                    damageTaken = 2 * (currentEnemy.monsterStrength - hero.defence);
+                    damageTaken = 2 * currentEnemy.monsterStrength - hero.defence;
+                    damageTaken = checkDamage(damageTaken);
                     hero.health -= damageTaken;
                     currentEnemy.monsterStamina -= 5;
-                    Console.WriteLine("Hero took  " + damageTaken);
-                    Console.WriteLine("Hero hp left: " + hero.health);
-                    Console.WriteLine("Monster stamina: " + currentEnemy.monsterStamina);
+                    monsterAttackMessage(hero, currentEnemy);
                 }
                 else
                 {
                     damageTaken = currentEnemy.monsterStrength - hero.defence;
+                    damageTaken = checkDamage(damageTaken);
                     hero.health -= damageTaken;
-                    Console.WriteLine("Hero took  " + damageTaken);
-                    Console.WriteLine("Hero hp left: " + hero.health);
-                    Console.WriteLine("Monster stamina: " + currentEnemy.monsterStamina);
+                    monsterAttackMessage(hero, currentEnemy);
                 }
                 
             }
             else
             {
                 damageTaken = currentEnemy.monsterStrength - hero.defence;
+                damageTaken = checkDamage(damageTaken);
                 hero.health -= damageTaken;
-                Console.WriteLine("Hero took  " + damageTaken);
-                Console.WriteLine("Hero hp left: " + hero.health);
-                Console.WriteLine("Monster stamina: " + currentEnemy.monsterStamina);
+                monsterAttackMessage(hero, currentEnemy);
             }
         }
+
+        static int checkDamage(int damageTaken)
+        {
+            if (damageTaken <= 0)
+            {
+                damageTaken = 1;
+            }
+            
+            return damageTaken;
+        }
+
+        public static void monsterAttackMessage(Hero hero, Monster currentEnemy)
+        {
+            Console.WriteLine("Hero took  " + damageTaken);
+            Console.WriteLine("Hero hp left: " + hero.health);
+            Console.WriteLine("Monster stamina: " + currentEnemy.monsterStamina);
+        }
+
+        public static void heroAttackMessage(Hero hero, Monster currentEnemy)
+        {
+            Console.WriteLine("Hero attack  " + damageTaken);
+            Console.WriteLine("Monster hp left: " + currentEnemy.monsterHealth);
+            Console.WriteLine("Hero stamina: " + hero.stamina);
+        }
+
     }
 }
