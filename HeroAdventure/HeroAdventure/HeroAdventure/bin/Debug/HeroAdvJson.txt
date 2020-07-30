@@ -1,0 +1,1 @@
+{"heroName":"t","strength":11,"agillity":2,"defence":2,"stamina":0,"health":11,"maxStamina":25,"maxHealth":25,"heroLevel":2,"experience":15,"gold":9,"weapon":null,"armor":null}
