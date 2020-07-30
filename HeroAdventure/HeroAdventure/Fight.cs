@@ -16,26 +16,7 @@ namespace HeroAdventure
         static Random rnd = new Random();
         static public void fightMonster(Hero hero, Monster currentEnemy)
         {
-            Console.WriteLine("Your Enemy will be " + currentEnemy.monsterName);
-            Console.WriteLine("Lvl " + currentEnemy.monsterLvl);
-            Console.WriteLine("Health " + currentEnemy.monsterHealth);
-            Console.WriteLine("Stamina " + currentEnemy.monsterStamina);
-            Console.WriteLine("Strength " + currentEnemy.monsterStrength);
-            Console.WriteLine("Agility " + currentEnemy.monsterAgility);
-            Console.WriteLine("Defence " + currentEnemy.monsterDefence);
-            Console.WriteLine("Gold " + currentEnemy.monsterGold);
-            Console.WriteLine("Exp " + currentEnemy.monsterExp);
-            Console.WriteLine("VS Player:");
-            Console.WriteLine("Hero Stats:");
-            Console.WriteLine("Lvl " + hero.heroLevel);
-            Console.WriteLine("Health " + hero.health);
-            Console.WriteLine("Stamina " + hero.stamina);
-            Console.WriteLine("Strength " + hero.strength);
-            Console.WriteLine("Agility " + hero.agillity);
-            Console.WriteLine("Defence " + hero.defence);
-            Console.WriteLine("Press any key to continue");
-            Console.ReadLine();
-            Console.Clear();
+            messageBeforeFight(hero, currentEnemy);
 
             enemyMaxHp = currentEnemy.monsterHealth;
             
@@ -184,5 +165,28 @@ namespace HeroAdventure
             Console.WriteLine("Hero stamina: " + hero.stamina);
         }
 
+        public static void messageBeforeFight(Hero hero, Monster currentEnemy)
+        {
+            Console.WriteLine("Your Enemy will be " + currentEnemy.monsterName);
+            Console.WriteLine("Lvl " + currentEnemy.monsterLvl);
+            Console.WriteLine("Health " + currentEnemy.monsterHealth);
+            Console.WriteLine("Stamina " + currentEnemy.monsterStamina);
+            Console.WriteLine("Strength " + currentEnemy.monsterStrength);
+            Console.WriteLine("Agility " + currentEnemy.monsterAgility);
+            Console.WriteLine("Defence " + currentEnemy.monsterDefence);
+            Console.WriteLine("Gold " + currentEnemy.monsterGold);
+            Console.WriteLine("Exp " + currentEnemy.monsterExp);
+            Console.WriteLine("VS Player:");
+            Console.WriteLine("Hero Stats:");
+            Console.WriteLine("Lvl " + hero.heroLevel);
+            Console.WriteLine("Health " + hero.health);
+            Console.WriteLine("Stamina " + hero.stamina);
+            Console.WriteLine("Strength " + hero.strength);
+            Console.WriteLine("Agility " + hero.agillity);
+            Console.WriteLine("Defence " + hero.defence);
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
+            Console.Clear();
+        }
     }
 }

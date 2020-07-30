@@ -9,7 +9,7 @@ namespace HeroAdventure
     public class Play
     {
         static Game start = new Game();
-        
+
         static public void gameDecision()
         {
             List<string> menuItems = new List<string>() {
@@ -27,9 +27,10 @@ namespace HeroAdventure
                 }
                 else if (selectedMenuItem == "Load")
                 {
-                    SaveLoad.Load();
+                    Hero hero = new Hero(null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null);
+                    SaveLoad.Load(hero);
                 }
-                
+
             }
         }
     }

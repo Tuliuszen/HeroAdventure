@@ -9,3 +9,16 @@ C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\obj\
 C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\obj\Debug\HeroAdventure.csproj.CoreCompileInputs.cache
 C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\obj\Debug\HeroAdventure.exe
 C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\obj\Debug\HeroAdventure.pdb
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\HeroAdventure.exe.config
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\HeroAdventure.exe
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\HeroAdventure.pdb
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\System.Buffers.dll
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\System.Memory.dll
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\bin\Debug\System.ValueTuple.xml
+C:\Users\Tuliusz\Desktop\Projekty\HeroAdventure\HeroAdventure\HeroAdventure\obj\Debug\HeroAdventure.csproj.CopyComplete
