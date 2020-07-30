@@ -36,7 +36,7 @@ namespace HeroAdventure
                     Console.Clear();
                     Console.WriteLine("Weapons");
                     WepaonsInicialization.showWeaponsList();
-                    Shop.chooseItemToBuy("Weapons");
+                    Shop.chooseItemToBuy("Weapons", hero);
                     Shop.buy(choosenItem, hero);
                 }
                 else if (selectedMenuItem == "Armor")
@@ -44,7 +44,7 @@ namespace HeroAdventure
                     Console.Clear();
                     Console.WriteLine("Armor");
                     ArmorInicialization.showArmorList();
-                    Shop.chooseItemToBuy("Armor");
+                    Shop.chooseItemToBuy("Armor", hero );
                     Shop.buy(choosenItem, hero);
                 }
                 else if (selectedMenuItem == "Potions")
@@ -52,7 +52,7 @@ namespace HeroAdventure
                     Console.Clear();
                     Console.WriteLine("Potions");
                     PotionsInicialization.showPotionsList();
-                    Shop.chooseItemToBuy("Potions");
+                    Shop.chooseItemToBuy("Potions", hero);
                     Shop.buy(choosenItem, hero);
                 }
                 else if (selectedMenuItem == "Exit")
@@ -63,9 +63,18 @@ namespace HeroAdventure
             }
         }
 
-        static public void chooseItemToBuy(string itemList)
+        static public void chooseItemToBuy(string itemList, Hero hero)
         {
             int itemNumber;
+            string answer;
+            Console.WriteLine("Hero Gold: " + hero.gold);
+            Console.WriteLine("Wanna buy something? yes or no");
+            answer = Console.ReadLine();
+            if (answer == "no")
+            {
+                Shop.whichEquipmentCategory(hero);
+            }
+            else if (answer == "yes")
 
             if (itemList == "Weapons")
             {
